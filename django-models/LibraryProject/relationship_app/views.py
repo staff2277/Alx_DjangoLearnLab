@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import DetailView
-from .models import Library, Book  # Ensure Book is imported
+from django.views.generic.detail import DetailView  # Explicit import
+from .models import Library, Book  # Ensure models are imported
 
 class LibraryDetailView(DetailView):
     model = Library
