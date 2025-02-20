@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.detail import DetailView  # Explicit import for Q2
 from django.contrib.auth import login  # Explicit import for Q3
 from django.contrib.auth.forms import UserCreationForm  # Explicit import for Q3
-from ...models import Library, Book  # Ensure models are imported
+from .models import Library, Book  # Ensure models are imported
 from django.http import HttpResponse
 
 class LibraryDetailView(DetailView):

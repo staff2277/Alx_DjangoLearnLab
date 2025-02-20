@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
-from .templates.relationship_app import views
+from . import views
 
 urlpatterns = [
     path("books/", views.list_books, name="list_books"),  # Q2 function-based view
