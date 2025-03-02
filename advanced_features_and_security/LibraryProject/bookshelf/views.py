@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import permission_required
-from .forms import BookSearchForm
+from .forms import BookSearchForm, ExampleForm
 from .models import Article, Book
 
 @permission_required('your_app_name.can_view', raise_exception=True)
