@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "LibraryProject.middleware.CSPMiddleware",
 ]
 
 ROOT_URLCONF = 'LibraryProject.urls'
@@ -124,3 +126,24 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'bookshelf.CustomUser'
+
+
+# Security Headers
+SECURE_BROWSER_XSS_FILTER = True  
+X_FRAME_OPTIONS = "DENY"  
+SECURE_CONTENT_TYPE_NOSNIFF = True  
+
+# Secure Cookies
+CSRF_COOKIE_SECURE = True  
+SESSION_COOKIE_SECURE = True  
+
+# Content Security Policy (CSP) Middleware (if django-csp is installed)
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
+
+# Ensure HTTPS is used
+SECURE_SSL_REDIRECT = True  
+SECURE_HSTS_SECONDS = 31536000  
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  
+SECURE_HSTS_PRELOAD = True  

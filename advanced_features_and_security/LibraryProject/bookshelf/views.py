@@ -1,10 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import permission_required
-from .models import Article
+from .forms import BookSearchForm
+from .models import Article, Book
 
 @permission_required('your_app_name.can_view', raise_exception=True)
 def book_list(request):
     books = Book.objects.all() 
+    if form.is_valid():
+        search_query = form.cleaned_data.get("search_query")
+        if search_query:
+            books = books.filter(Q(title__icontains=search_query) | Q(author__icontains=search_query))
+
     return render(request, 'bookshelf/book_list.html', {'books': books})
 
 @permission_required('your_app_name.can_view', raise_exception=True)
