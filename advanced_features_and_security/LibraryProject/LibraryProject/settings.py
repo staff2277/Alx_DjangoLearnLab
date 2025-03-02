@@ -153,3 +153,5 @@ SESSION_COOKIE_SECURE = True
 
 # Ensure CSRF cookies are transmitted only over HTTPS
 CSRF_COOKIE_SECURE = True  
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
