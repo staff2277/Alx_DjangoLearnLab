@@ -1,8 +1,9 @@
+from .forms import BookSearchForm, ExampleForm  
 from django.shortcuts import render
 from django.contrib.auth.decorators import permission_required
 from django.db.models import Q
 from .models import Book
-from .forms import BookSearchForm, ExampleForm  
+
 @permission_required('bookshelf.can_view', raise_exception=True)
 def book_list(request):
     books = Book.objects.all()  
