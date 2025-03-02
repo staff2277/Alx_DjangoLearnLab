@@ -147,3 +147,9 @@ SECURE_SSL_REDIRECT = True
 SECURE_HSTS_SECONDS = 31536000  
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True  
 SECURE_HSTS_PRELOAD = True  
+
+# Ensure session cookies are transmitted only over HTTPS
+SESSION_COOKIE_SECURE = True  
+
+# Ensure CSRF cookies are transmitted only over HTTPS
+CSRF_COOKIE_SECURE = True  
