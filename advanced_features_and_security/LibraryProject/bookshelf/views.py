@@ -34,3 +34,7 @@ def delete_article(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     article.delete()
     return render(request, 'articles/delete.html')
+
+def example_form_view(request):
+    form = ExampleForm()
+    return render(request, 'bookshelf/example_form.html', {'form': form})
